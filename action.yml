@@ -1,0 +1,21 @@
+name: 'WIPAC Dev Flake8'
+description: 'GitHub Action Package for Running Flake8'
+
+# inputs:
+#   who-to-greet:  # id of input
+#     description: 'Who to greet'
+#     required: true
+#     default: 'World'
+
+# outputs:
+#   random-number:
+#     description: "Random number"
+#     value: ${{ steps.random-number-generator.outputs.random-id }}
+
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        pip install flake8
+        flake8 . --ignore=E203,E226,E228,E231,E501,W503,W504
+      shell: bash
